@@ -5,67 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Botones Interactivos</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
-  <main class="container" style="text-align:center ;">
-    
-    <button class="button small green" onclick="handleGreenClick()">
+  <main class="container">
+    <!-- Botones originales -->
+    <button class="button small green" data-bs-toggle="modal" data-bs-target="#greenModal" aria-label="Activar botón verde">
       ¡Botón Verde!
       <span class="button-icon">🌿</span>
     </button>
 
-    <button class="button medium blue" onclick="handleBlueClick()">
+    <button class="button medium blue" data-bs-toggle="modal" data-bs-target="#blueModal" aria-label="Activar botón azul">
       ¡Botón Azul!
       <span class="button-icon">⚡</span>
     </button>
 
-    <button class="button large purple" onclick="handlePurpleClick()">
+    <button class="button large purple" data-bs-toggle="modal" data-bs-target="#purpleModal" aria-label="Activar botón morado">
       ¡Botón Morado!
       <span class="button-icon">🔥</span>
     </button>
+
+    <!-- Botones de Bootstrap 5 -->
+    <div class="btn-group-vertical mt-4" role="group" aria-label="Botones de Bootstrap">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#primaryModal" aria-label="Activar botón primario">
+        Botón Primario BS5
+      </button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#dangerModal" aria-label="Activar botón danger">
+        Botón Danger BS5
+      </button>
+      <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#warningModal" aria-label="Activar botón warning">
+        Botón Warning Outline BS5
+      </button>
+    </div>
   </main>
 
-  <script>
-    function handleGreenClick() {
-      Swal.fire({
-        title: '¡Botón Verde Activado! 🌿',
-        text: '¡Explosión de energía natural! Sigue creando. 🌱',
-        icon: 'success',
-        confirmButtonText: '¡Súper! 😄',
-        background: '#ecfdf5',
-        color: '#14532d',
-        confirmButtonColor: '#4CAF50'
-      });
-    }
+  <!-- Modales de Bootstrap 5 -->
+  <!-- Modal Verde -->
+  <div class="modal fade" id="greenModal" tabindex="-1" aria-labelledby="greenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: #ecfdf5; color: #14532d;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="greenModalLabel"><i class="bi bi-check-circle-fill me-2"></i>¡Botón Verde Activado! 🌿</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¡Explosión de energía natural! Sigue creando. 🌱
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Súper! 😄</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    function handleBlueClick() {
-      Swal.fire({
-        title: '¡Botón Azul Encendido! ⚡',
-        text: '¡Siente la chispa de la innovación! 🚀',
-        icon: 'info',
-        confirmButtonText: '¡Increíble! 😎',
-        background: '#eff6ff',
-        color: '#1e3a8a',
-        confirmButtonColor: '#3b82f6'
-      });
-    }
+  <!-- Modal Azul -->
+  <div class="modal fade" id="blueModal" tabindex="-1" aria-labelledby="blueModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: #eff6ff; color: #1e3a8a;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="blueModalLabel"><i class="bi bi-info-circle-fill me-2"></i>¡Botón Azul Encendido! ⚡</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¡Siente la chispa de la innovación! 🚀
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">¡Increíble! 😎</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    function handlePurpleClick() {
-      Swal.fire({
-        title: '¡Botón Morado en Llamas! 🔥',
-        text: '¡Desata tu creatividad al máximo! 🎨',
-        icon: 'warning',
-        confirmButtonText: '¡Épico! 😍',
-        background: '#f5f3ff',
-        color: '#4c1d95',
-        confirmButtonColor: '#8b5cf6'
-      });
-    }
-  </script>
+  <!-- Modal Morado -->
+  <div class="modal fade" id="purpleModal" tabindex="-1" aria-labelledby="purpleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: #f5f3ff; color: #4c1d95;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="purpleModalLabel"><i class="bi bi-exclamation-triangle-fill me-2"></i>¡Botón Morado en Llamas! 🔥</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¡Desata tu creatividad al máximo! 🎨
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-purple" data-bs-dismiss="modal">¡Épico! 😍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Primario -->
+  <div class="modal fade" id="primaryModal" tabindex="-1" aria-labelledby="primaryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: #e7f1ff; color: #0d6efd;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="primaryModalLabel"><i class="bi bi-check-circle-fill me-2"></i>¡Botón Primario Activado! 🎉</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¡Un clásico de Bootstrap para acciones principales! 🚀
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">¡Genial! 😊</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Danger -->
+  <div class="modal fade" id="dangerModal" tabindex="-1" aria-labelledby="dangerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: #fef2f2; color: #dc3545;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dangerModalLabel"><i class="bi bi-x-circle-fill me-2"></i>¡Botón Danger Activado! ⚠️</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¡Cuidado, acción crítica en marcha! 🛑
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">¡Entendido! 😬</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Warning -->
+  <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="warningModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: #fefce8; color: #ffc107;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="warningModalLabel"><i class="bi bi-exclamation-triangle-fill me-2"></i>¡Botón Warning Activado! 🚧</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          ¡Atención, algo importante está pasando! ⚠️
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">¡Ok! 👍</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

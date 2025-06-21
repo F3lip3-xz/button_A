@@ -1,4 +1,4 @@
-/* Fuente base */
+/* Prevenir desplazamiento de la página */
 body {
   margin: 0;
   padding: 0;
@@ -8,19 +8,26 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* Contenedor principal */
+/* Contenedor centrado y fijo */
 .container {
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
-
-/* Estilo base para todos los botones */
-.button {
+/* Estilo base para botones personalizados */
+.button,
+.btn-group-vertical .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -34,9 +41,11 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   width: 220px;
+  max-width: 90vw;
   position: relative;
   overflow: hidden;
   text-align: center;
+  text-decoration: none;
 }
 
 /* Ícono */
@@ -52,7 +61,7 @@ body {
   transform: translateX(0);
 }
 
-/* Colores específicos */
+/* Colores personalizados */
 .green {
   background-color: #4CAF50;
 }
@@ -67,28 +76,46 @@ body {
 }
 .blue:hover {
   background-color: #2563eb;
-  transform: scale(1.08);
+  transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
-.purple {
+.purple,
+.btn-purple {
   background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+  color: #fff;
+  border: none;
 }
-.purple:hover {
+.purple:hover,
+.btn-purple:hover {
   background: linear-gradient(45deg, #7c3aed, #8b5cf6);
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Botones de Bootstrap en vertical */
+.btn-group-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn-group-vertical .btn {
+  margin: 0; /* Elimina margen inferior, ya usamos gap */
+}
+
+/* Asegurar modales sobre todo */
+.modal {
+  z-index: 1050;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
-  .button {
+  .button,
+  .btn-group-vertical .btn {
     width: 90%;
     font-size: 15px;
     padding: 12px 20px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
   }
 }

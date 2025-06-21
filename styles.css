@@ -1,0 +1,94 @@
+/* Fuente base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+/* Estilo base para todos los botones */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  background-color: #000;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  width: 220px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Ícono */
+.button-icon {
+  margin-left: 10px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.button:hover .button-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Colores específicos */
+.green {
+  background-color: #4CAF50;
+}
+.green:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.blue {
+  background-color: #3b82f6;
+}
+.blue:hover {
+  background-color: #2563eb;
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.purple {
+  background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+}
+.purple:hover {
+  background: linear-gradient(45deg, #7c3aed, #8b5cf6);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .button {
+    width: 90%;
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
